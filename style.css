@@ -1,0 +1,93 @@
+body {
+    padding: 0;
+    margin: 0;
+    max-height: -moz-available;
+    max-height: -webkit-fill-available;
+    max-height: fill-available;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    padding-top: 30px;
+    margin: 0;
+    background-image: url(./picture.jpg);
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+    font-size: 80px;
+    font-family: 'The Nautigal', cursive;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    border: 1px solid rgba(105, 171, 223, 0.2);
+    box-shadow: 0 0 20px rgba(105, 171, 223, 0.5),
+        0 0 25px rgba(255, 255, 255, 1);
+    border-radius: 50px;
+    width: 70px;
+    height: 50px;
+    font-size: 20px;
+    background: none;
+}
+
+.mute {
+    display: none;
+}
+
+.title {
+    margin-top: 15px;
+    font-size: 80px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-family: 'The Nautigal', cursive;
+    color: #ffa504;
+    letter-spacing: 3px;
+}
+
+.volume img {
+    width: 30px;
+}
+.mute img {
+    width: 29px;
+}
+
+.grid {
+    width: 310px;
+    display: grid;
+    grid-template-rows: repeat(4, 100px);
+    grid-template-columns: repeat(3, 100px);
+    margin: 0 auto;
+    column-gap: 5px;
+    row-gap: 5px;
+    margin-top: -110px;
+    position: relative;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.block {
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#block9 {
+    display: none;
+    background-color: red;
+}
+.congrats {
+    font-size: 80px;
+}
