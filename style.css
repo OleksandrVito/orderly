@@ -1,22 +1,17 @@
 body {
     padding: 0;
     margin: 0;
-    max-height: -moz-available;
-    max-height: -webkit-fill-available;
-    max-height: fill-available;
-    height: 95vh;
-}
-
-.container {
-    width: 100vw;
-    height: 100%;
-    text-align: center;
-    padding-top: 30px;
-    margin: 0;
     background-image: url(./picture.jpg);
     background-size: cover;
     background-position: right;
     background-repeat: no-repeat;
+}
+
+.container {
+    width: 100vw;
+    text-align: center;
+    padding-top: 30px;
+    margin: 0;
     font-size: 80px;
     font-family: 'The Nautigal', cursive;
     display: flex;
@@ -91,4 +86,13 @@ button {
 }
 .congrats {
     font-size: 80px;
+}
+
+@media (min-width: 768px) {
+    body {
+        min-height: 100vh;
+        min-height: -moz-available;
+        min-height: -webkit-fill-available;
+        min-height: fill-available;
+    }
 }
