@@ -108,16 +108,16 @@ function randomBlock() {
     );
 
     for (let i = 0; i < blocks.length; i++) {
-        blocks[i].style.background = `url(${pictureNumber}/${i + 1}.jpg)`;
+        blocks[i].style.background = `url(./${pictureNumber}/${i + 1}.jpg)`;
     }
     card9.appendChild(block9);
     block9.style.display = 'block';
-    block9.style.background = `url(${pictureNumber}/9.jpg)`;
+    block9.style.background = `url(./${pictureNumber}/9.jpg)`;
     setTimeout(() => {
-        // for (let i = 0; i < cards.length - 1; i++) {
-        //     let x = blocks.splice(Math.floor(Math.random() * blocks.length), 1);
-        //     cards[i].appendChild(x[0]);
-        // }
+        for (let i = 0; i < cards.length - 1; i++) {
+            let x = blocks.splice(Math.floor(Math.random() * blocks.length), 1);
+            cards[i].appendChild(x[0]);
+        }
         cards[8].removeChild(block9);
         block9.style.display = 'none';
     }, 2500);
