@@ -5,6 +5,15 @@ body {
     background-size: cover;
     background-position: right;
     background-repeat: no-repeat;
+    min-height: 100vh;
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
+}
+
+html {
+    height: fill-available;
+    height: -webkit-fill-available;
 }
 
 .container {
@@ -86,13 +95,4 @@ button {
 }
 .congrats {
     font-size: 80px;
-}
-
-@media (min-width: 768px) {
-    body {
-        min-height: 100vh;
-        min-height: -moz-available;
-        min-height: -webkit-fill-available;
-        min-height: fill-available;
-    }
 }
