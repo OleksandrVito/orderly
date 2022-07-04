@@ -107,12 +107,17 @@ function randomBlock() {
         1
     );
 
-    for (let i = 0; i < blocks.length; i++) {
-        blocks[i].style.background = `url(./${pictureNumber}/${i + 1}.jpg)`;
-    }
     card9.appendChild(block9);
     block9.style.display = 'block';
-    block9.style.background = `url(./${pictureNumber}/9.jpg)`;
+    block1.style.background = `url(../${pictureNumber}/1.jpg)`;
+    block2.style.background = `url(./${pictureNumber}/2.jpg)`;
+    block3.style.background = `url(/${pictureNumber}/3.jpg)`;
+    block4.style.background = `url(${pictureNumber}/4.jpg)`;
+    block5.style.background = `url(../${pictureNumber}/5.jpg)`;
+    block6.style.background = `url(../${pictureNumber}/6.jpg)`;
+    block7.style.background = `url(../${pictureNumber}/7.jpg)`;
+    block8.style.background = `url(../${pictureNumber}/8.jpg)`;
+    block9.style.background = `url(../${pictureNumber}/9.jpg)`;
     setTimeout(() => {
         for (let i = 0; i < cards.length - 1; i++) {
             let x = blocks.splice(Math.floor(Math.random() * blocks.length), 1);
