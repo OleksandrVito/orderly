@@ -4,11 +4,12 @@ body {
     max-height: -moz-available;
     max-height: -webkit-fill-available;
     max-height: fill-available;
+    height: 95vh;
 }
 
 .container {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     text-align: center;
     padding-top: 30px;
     margin: 0;
