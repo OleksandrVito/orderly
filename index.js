@@ -1,19 +1,13 @@
 const block = document.querySelector('.container');
 const audio = document.querySelector('.audio');
-const volume = document.querySelector('.volume');
 const mute = document.querySelector('.mute');
-const congrats = document.querySelector('.congrats');
+const preview = document.querySelector('.preview');
+const reset = document.querySelector('.reset');
+const easy = document.querySelector('.easy');
 
-volume.addEventListener('click', () => {
-    mute.style.display = 'inline-block';
-    volume.style.display = 'none';
-    audio.muted = true;
-});
-mute.addEventListener('click', () => {
-    mute.style.display = 'none';
-    volume.style.display = 'inline-block';
-    audio.muted = false;
-});
+let pictureNumber;
+
+const congrats = document.querySelector('.congrats');
 
 const block1 = document.querySelector('#block1');
 const block2 = document.querySelector('#block2');
@@ -23,7 +17,7 @@ const block5 = document.querySelector('#block5');
 const block6 = document.querySelector('#block6');
 const block7 = document.querySelector('#block7');
 const block8 = document.querySelector('#block8');
-const blocks = [block1, block2, block3, block4, block5, block6, block7, block8];
+let blocks = [block1, block2, block3, block4, block5, block6, block7, block8];
 
 const block9 = document.querySelector('#block9');
 
@@ -40,6 +34,7 @@ const cards = document.querySelectorAll('.card');
 
 let currentCard;
 let currentBlock;
+let condition;
 
 function returnCurrentCard() {
     cards.forEach((element) => {
@@ -53,30 +48,32 @@ function removeChild() {
     returnCurrentCard();
     currentBlock = this.children[0];
     if (
-        (currentCard.id === 'card9' && this.id === 'card8') ||
-        (currentCard.id === 'card9' && this.id === 'card6') ||
-        (currentCard.id === 'card8' && this.id === 'card7') ||
-        (currentCard.id === 'card8' && this.id === 'card9') ||
-        (currentCard.id === 'card8' && this.id === 'card5') ||
-        (currentCard.id === 'card7' && this.id === 'card8') ||
-        (currentCard.id === 'card7' && this.id === 'card4') ||
-        (currentCard.id === 'card6' && this.id === 'card5') ||
-        (currentCard.id === 'card6' && this.id === 'card9') ||
-        (currentCard.id === 'card6' && this.id === 'card3') ||
-        (currentCard.id === 'card5' && this.id === 'card4') ||
-        (currentCard.id === 'card5' && this.id === 'card6') ||
-        (currentCard.id === 'card5' && this.id === 'card8') ||
-        (currentCard.id === 'card5' && this.id === 'card2') ||
-        (currentCard.id === 'card4' && this.id === 'card5') ||
-        (currentCard.id === 'card4' && this.id === 'card7') ||
-        (currentCard.id === 'card4' && this.id === 'card1') ||
-        (currentCard.id === 'card3' && this.id === 'card6') ||
-        (currentCard.id === 'card3' && this.id === 'card2') ||
-        (currentCard.id === 'card2' && this.id === 'card3') ||
-        (currentCard.id === 'card2' && this.id === 'card5') ||
-        (currentCard.id === 'card2' && this.id === 'card1') ||
-        (currentCard.id === 'card1' && this.id === 'card2') ||
-        (currentCard.id === 'card1' && this.id === 'card4')
+        this != currentCard &&
+        ((currentCard.id === 'card9' && this.id === 'card8') ||
+            (currentCard.id === 'card9' && this.id === 'card6') ||
+            (currentCard.id === 'card8' && this.id === 'card7') ||
+            (currentCard.id === 'card8' && this.id === 'card9') ||
+            (currentCard.id === 'card8' && this.id === 'card5') ||
+            (currentCard.id === 'card7' && this.id === 'card8') ||
+            (currentCard.id === 'card7' && this.id === 'card4') ||
+            (currentCard.id === 'card6' && this.id === 'card5') ||
+            (currentCard.id === 'card6' && this.id === 'card9') ||
+            (currentCard.id === 'card6' && this.id === 'card3') ||
+            (currentCard.id === 'card5' && this.id === 'card4') ||
+            (currentCard.id === 'card5' && this.id === 'card6') ||
+            (currentCard.id === 'card5' && this.id === 'card8') ||
+            (currentCard.id === 'card5' && this.id === 'card2') ||
+            (currentCard.id === 'card4' && this.id === 'card5') ||
+            (currentCard.id === 'card4' && this.id === 'card7') ||
+            (currentCard.id === 'card4' && this.id === 'card1') ||
+            (currentCard.id === 'card3' && this.id === 'card6') ||
+            (currentCard.id === 'card3' && this.id === 'card2') ||
+            (currentCard.id === 'card2' && this.id === 'card3') ||
+            (currentCard.id === 'card2' && this.id === 'card5') ||
+            (currentCard.id === 'card2' && this.id === 'card1') ||
+            (currentCard.id === 'card1' && this.id === 'card2') ||
+            (currentCard.id === 'card1' && this.id === 'card4') ||
+            condition === true)
     ) {
         audio.play();
         this.removeChild(currentBlock);
@@ -102,13 +99,14 @@ function randomBlock() {
     if (pictureArr.length === 0) {
         pictureArr = [1, 2, 3, 4, 5];
     }
-    let pictureNumber = pictureArr.splice(
+    pictureNumber = pictureArr.splice(
         Math.floor(Math.random() * pictureArr.length),
         1
     );
 
     card9.appendChild(block9);
     block9.style.display = 'block';
+
     block1.style.background = `url(./${pictureNumber}/1.jpg)`;
     block2.style.background = `url(./${pictureNumber}/2.jpg)`;
     block3.style.background = `url(./${pictureNumber}/3.jpg)`;
@@ -118,6 +116,10 @@ function randomBlock() {
     block7.style.background = `url(./${pictureNumber}/7.jpg)`;
     block8.style.background = `url(./${pictureNumber}/8.jpg)`;
     block9.style.background = `url(./${pictureNumber}/9.jpg)`;
+
+    preview.style.background = `url(./${pictureNumber}/10.jpg)`;
+    preview.style.display = `block`;
+    preview.style.backgroundSize = 'cover';
     setTimeout(() => {
         for (let i = 0; i < cards.length - 1; i++) {
             let x = blocks.splice(Math.floor(Math.random() * blocks.length), 1);
@@ -127,7 +129,7 @@ function randomBlock() {
         block9.style.display = 'none';
     }, 2500);
 }
-randomBlock(1);
+randomBlock();
 function check() {
     if (
         card1.children[0] === block1 &&
@@ -145,7 +147,53 @@ function check() {
         }, 400);
 
         setTimeout(() => {
+            blocks = [
+                block1,
+                block2,
+                block3,
+                block4,
+                block5,
+                block6,
+                block7,
+                block8,
+            ];
             randomBlock();
         }, 2000);
     }
 }
+
+reset.addEventListener('click', () => {
+    blocks = [block1, block2, block3, block4, block5, block6, block7, block8];
+    for (let i = 0; i < cards.length - 1; i++) {
+        cards[i].appendChild([blocks[i]][0]);
+    }
+    randomBlock();
+});
+
+preview.addEventListener('click', () => {
+    const bigImg = document.querySelector('.bigImg');
+    bigImg.style.background = `url(./${pictureNumber}/10.jpg)`;
+    bigImg.style.display = `block`;
+    bigImg.style.backgroundSize = 'cover';
+    setTimeout(() => {
+        bigImg.style.display = `none`;
+    }, 2000);
+});
+
+easy.addEventListener('click', () => {
+    easy.classList.toggle('activated');
+    if (easy.classList.contains('activated')) {
+        condition = true;
+    } else {
+        condition = false;
+    }
+});
+
+mute.addEventListener('click', () => {
+    mute.classList.toggle('activated');
+    if (mute.classList.contains('activated')) {
+        audio.muted = true;
+    } else {
+        audio.muted = false;
+    }
+});

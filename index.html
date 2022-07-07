@@ -16,13 +16,15 @@
     </head>
     <body>
         <div class="container">
-            <button class="volume">
-                <img src="./volume.png" alt="volume" />
-            </button>
-            <button class="mute">
-                <img src="./mute.png" alt="volume" />
-            </button>
+            <div class="btn-block">
+                <button class="mute">mute</button>
+                <button class="reset">reset</button>
+                <button class="preview"></button>
+                <button class="easy">easy</button>
+            </div>
+
             <p class="title">Orderly</p>
+
             <audio class="audio" src="./slide.mp3"></audio>
             <p class="congrats"></p>
             <div class="grid">
@@ -53,6 +55,7 @@
                 <div class="card" id="card9"></div>
             </div>
             <div class="block" id="block9"></div>
+            <div class="bigImg"></div>
         </div>
         <script src="index.js"></script>
     </body>
