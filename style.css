@@ -96,10 +96,11 @@ button {
     height: 65px;
     font-size: 15px;
     letter-spacing: 1px;
-    background: #e0e5ec;
-    color: lawngreen;
+    background: #c1dcf1;
+    color: #38c9d2;
     position: absolute;
     bottom: 0;
+    font-weight: 600;
 }
 
 button:active {
@@ -132,7 +133,7 @@ button:active {
         -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
         inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
         inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3);
-    color: rgba(255, 0, 0, 0.5);
+    color: rgba(255, 0, 0, 0.4);
     font-weight: 600;
 }
 
