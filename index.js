@@ -93,11 +93,11 @@ card7.addEventListener('click', removeChild);
 card8.addEventListener('click', removeChild);
 card9.addEventListener('click', removeChild);
 
-let pictureArr = [1, 2, 3, 4, 5];
+let pictureArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
 function randomBlock() {
     if (pictureArr.length === 0) {
-        pictureArr = [1, 2, 3, 4, 5];
+        pictureArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
     }
     pictureNumber = pictureArr.splice(
         Math.floor(Math.random() * pictureArr.length),
